@@ -13,7 +13,7 @@ var exec = require('child_process').exec,
     child;
 var root=fis.util.realpath(process.cwd());
 var rootPathInfo=fis.util.pathinfo(root);
-var snailGames=require('./snailGames.json');
+
 //console.log(rootPathInfo.filename);
 // prepend ./node_modules to NODE_PATH
 process.env.NODE_PATH = process.env.NODE_PATH ?
@@ -43,11 +43,12 @@ exports.register = function (commander) {
                 '手机专题':'snailfwd-site-mobilespecial'
             };
             var packageJson='./package.json';
+            var snailGames;
             var download = new Download({ extract: true, strip: 1, mode: '755' })
                 //'https://codeload.github.com/senro/' +projectAlias[answers.gameType] + '/tar.gz/master'
                 //'https://github.com/senro/'+projectAlias[answers.gameType]+'/archive/master.zip'
                 //'https://raw.githubusercontent.com/scrat-team/scrat.js/master/scrat.js'
-                .get('https://raw.githubusercontent.com/senro/snailfwd-site/master/fis-conf.js')
+                .get('https://raw.githubusercontent.com/senro/snailfwd-data/master/snailGames.json')
                 .dest('./')
                 .use(progress());
 
@@ -56,12 +57,18 @@ exports.register = function (commander) {
                     throw err;
                 }
                 console.log('snailGames已下载完毕!');
+                snailGames=require('./snailGames.json');
+                var gameNameArr=[];
+                for(var gameName in snailGames){
+
+                }
                 inquirer.prompt([
                     {
-                        type:'input',
+                        type:'list',
                         name:'gameName',
                         message:'蜗牛的哪个游戏?',
-                        default:'九阴真经'
+                        default:'九阴真经',
+                        choices:['官网','专题']
                     },
                     {
                         type:'list',

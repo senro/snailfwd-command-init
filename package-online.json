@@ -1,0 +1,31 @@
+{
+  "name": "snailfwd-command-init",
+  "version": "0.0.7",
+  "description": "snailfwd project scaffold",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/senro/snailfwd-command-init.git"
+  },
+  "keywords": [
+    "scaffold",
+    "snailfwd"
+  ],
+  "author": "senro <passtome@foxmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/senro/snailfwd-command-init/issues"
+  },
+  "homepage": "https://github.com/senro/snailfwd-command-init",
+  "dependencies": {
+    "debug": "1.0.2",
+    "download":"3.3.0",
+    "download-status":"2.1.1",
+    "inquirer":"0.8.0",
+    "rd":"0.0.2",
+    "fs-extra": "^0.16.3"
+  }
+}
